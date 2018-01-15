@@ -3,8 +3,8 @@ var router  = express.Router();
 var post = require("../models/post");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
+var SummaryTool = require('node-summary');
 var { isLoggedIn, checkUserpost, checkUserComment, isAdmin } = middleware; // destructuring assignment
-
 // Define escapeRegex function for search feature
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
@@ -49,7 +49,11 @@ router.post("/", isLoggedIn, function(req, res){
   var type = req.body.type;
   var factOrMyth = req.body.factOrMyth;
   var source = req.body.source;
-  var newpost = {name: name, image: image, description: desc, author:author, type: type, factOrMyth: factOrMyth, source: source};
+  var title="";
+  SummaryTool.summarize(title, desc, function(err, summary) {
+	if(err) {console.log("Something went wrong!");}
+	
+  var newpost = {name: name, image: image, description: desc, summary: summary, author:author, type: type, factOrMyth: factOrMyth, source: source};
     // Create a new post and save to DB
     post.create(newpost, function(err, newlyCreated){
         if(err){
@@ -58,9 +62,9 @@ router.post("/", isLoggedIn, function(req, res){
             res.redirect("/posts");
         }
     });
-  }
+  })
   
-);
+});
 
 //NEW - show form to create new post
 router.get("/new", isLoggedIn, function(req, res){

@@ -8,6 +8,7 @@ var postSchema = new mongoose.Schema({
    type: String,
    factOrMyth: String,
    source: String,
+   summary: String,
    author: {
       id: {
          type: mongoose.Schema.Types.ObjectId,

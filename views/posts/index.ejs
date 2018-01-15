@@ -29,7 +29,7 @@
                    <a href="/posts/<%= post._id %>"><img class="card-img-top" src="<%= post.image %>"></a>
                    <div class="card-block">
                        <h4 class="card-title"><%= post.name %></h4>
-                       <p class="card-text"><%= post.description %></p>
+                       <p class="card-text" ><%= post.summary %>...</p>
                     <% if (post.type != null){ %>
                     <% post.type.split(",").forEach(function(type){ %>
                 
@@ -43,7 +43,7 @@
                      <% } }  %>
                    </div>
                    <p>
-                       <a href="/posts/<%= post._id %>" class="btn btn-info">More Info</a>
+                       <a href="/posts/<%= post._id %>" class="btn btn-info">Read more</a>
                    </p>
                 </div>
             </div>
