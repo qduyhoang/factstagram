@@ -39,7 +39,7 @@ app.locals.moment = require('moment');
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "Cool places near me",
+    secret: "Factstagram",
     resave: false,
     saveUninitialized: false
 }));
