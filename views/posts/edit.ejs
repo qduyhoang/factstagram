@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="source">Source</label>
-                    <input class="form-control" type="text" name="source" id="source" value="<%=post.source%>" required>
+                    <input class="form-control" type="text" name="source" id="source" value="<%=post.source%>">
                 </div>
                 
                 <div class="form-group type">
@@ -72,7 +72,7 @@
 </div><!-- /.container -->
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">&copy; Which is Which | <a href="/posts">Home</a> | <a href="/posts/new">New post</a></p>
+        <p class="text-muted">&copy; Factstagram | <a href="/posts">Home</a> | <a href="/posts/new">New post</a></p>
     </div>
 </footer>
 <script
@@ -83,17 +83,27 @@
 
 <script>/*global $*/
 
-$("input[type='radio']").click(function(){
-    $("input[type=radio]").parent().attr("class", "btn btn-outline-secondary")
+/*global $*/
+
+$(".type input[type='radio']").click(function(){
+    $(".type input[type=radio]").parent().attr("class", "btn btn-outline-secondary")
     $(".otherTextBox").hide();
     $(".otherTextBox").prop("disabled", true);
     if($(this).is(":checked")){
         $(this).parent().attr("class", "btn btn-outline-success")
-    }
+    };
 });
+
+$(".fact-myth input[type='radio']").click(function(){
+    $(".fact-myth input[type=radio]").parent().attr("class", "btn btn-outline-secondary")
+    if($(this).is(":checked")){
+        $(this).parent().attr("class", "btn btn-outline-success")
+    };
+});
+
 $("label[for='other']").click(function(){
     $(".otherTextBox").show();
-    $(":checked").prop("checked", false)
+    $(".type :checked").prop("checked", false)
     $(".otherTextBox").prop("disabled", false)
 })
 </script>
