@@ -3,7 +3,7 @@ var router  = express.Router();
 var post = require("../models/post");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
-var SummaryTool = require('node-summary');
+var SummaryTool = require('../node-summary');
 var { isLoggedIn, checkUserpost, checkUserComment, isAdmin } = middleware; // destructuring assignment
 // Define escapeRegex function for search feature
 function escapeRegex(text) {
