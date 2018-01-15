@@ -1,0 +1,54 @@
+<% include ../partials/header %> 
+
+     <header class="jumbotron">
+         <div class="container">
+            <% var href = stuff.url %>
+            <% var currentURL = stuff.url.substr(stuff.url.indexOf('?search=')+8) %>
+            <% if (currentURL.length<1 || currentURL == "Fact") {%>
+                  <h1>Facts</h1>
+             <% }else if(currentURL == "Myth"){ %>
+             <h1> Myths</h1>
+            <% }else{ %>
+             <h1><%=currentURL.charAt(0).toUpperCase() + currentURL.slice(1)%></h1>
+             <% } %>
+            
+            
+             <p>All cool facts</p>
+             <p>
+                <a class="btn btn-outline-primary btn-lg" href="/posts/new">Add New Fact</a>
+             </p>
+         </div>
+     </header>
+     <% if (noMatch !==null){ %>
+     <h3><%= noMatch %></h3>
+     <% } %>
+     <div class="text-center flex-wrap" id="post-grid">
+        <% posts.forEach(function(post){ %>
+            <div class="card" style="width: 17rem;">
+                <div>
+                   <a href="/posts/<%= post._id %>"><img class="card-img-top" src="<%= post.image %>"></a>
+                   <div class="card-block">
+                       <h4 class="card-title"><%= post.name %></h4>
+                       <p class="card-text"><%= post.description %></p>
+                    <% if (post.type != null){ %>
+                    <% post.type.split(",").forEach(function(type){ %>
+                
+                      <a href="/posts?search=<%=type.charAt(0).toUpperCase()+type.slice(1)%>" class="btn btn-outline-primary mb-2"><%=type.charAt(0).toUpperCase()+type.slice(1)%></a>
+                    <% })} %>
+                    <% if (post.factOrMyth != null){ %>
+                         <% if (post.factOrMyth == "Fact"){ %>
+                                 <a href="/posts?search=<%=post.factOrMyth%>" class="btn btn-outline-success mb-2"><%=post.factOrMyth%></a>
+                         <% }else { %>
+                            <a href="/posts?search=<%=post.factOrMyth%>" class="btn btn-outline-danger mb-2"><%=post.factOrMyth%></a>
+                     <% } }  %>
+                   </div>
+                   <p>
+                       <a href="/posts/<%= post._id %>" class="btn btn-info">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,57 @@
+<% include ../partials/header %>
+        <h1 style="text-align: center">New post</h1>
+        <div style="width: 40%; margin: 25px auto;">
+        <form action="/posts" method="POST">
+                <div class="form-group">
+                    <label for="name">Title</label>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Honey does not spoil.">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image Url</label>
+                    <input class="form-control" type="text" name="image" id="image" placeholder="https://images.unsplash.com/...">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input class="form-control" type="text" name="description" id="description" placeholder="You could feasibly eat 3000 year old honey.">
+                </div>
+                <div class="form-group">
+                    <label for="source">Source</label>
+                    <input class="form-control" type="text" name="source" id="source" placeholder="https://en.wikipedia.org/wiki/Honey.">
+                </div>
+                
+                <div class="form-group type">
+                  <p>What category is this?</p>
+                  <label for="daily life" class="btn btn-outline-secondary">
+                    <input type="radio" name="type" id="daily life" value="Daily life" autocomplete="off"> Daily life
+                  </label>
+                  <label for="science" class="btn btn-outline-secondary">
+                    <input type="radio" name="type" id="science" value="Science" autocomplete="off"> Science
+                  </label>
+                  <label for="health" class="btn btn-outline-secondary">
+                    <input type="radio" name="type" id="health" value="Health" autocomplete="off"> Health
+                  </label>
+                   <label for="other" class="btn btn-outline-secondary">
+                    <input type="radio" id="other">Other, please specify</label>
+                   <input class="form-control otherTextBox" type="text" name="type" placeholder="Music, Movie, Cooking, etc." disabled required>
+                </div>
+                <div class="fact-myth form-group button-group">
+                  <p>Is this a fact or a myth?</p>
+          
+                  <label for="fact" class="btn btn-outline-secondary">
+                    <input type="radio" name="factOrMyth" id="fact" value="Fact" autocomplete="off"> Fact
+                  </label>
+                  <label for="myth" class="btn btn-outline-secondary">
+                    <input type="radio" name="factOrMyth" id="myth" value="Myth" autocomplete="off"> Myth
+                  </label>
+                </div>
+        
+                 
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Spread the knowledge</button>
+                </div>
+            </form>
+            
+            <a href="/posts">Go Back</a>
+        </div>
+<% include ../partials/footer %>
+
