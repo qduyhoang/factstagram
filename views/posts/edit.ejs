@@ -4,15 +4,19 @@
         <form action="/posts/<%=post._id%>?_method=PUT" method="POST">
                 <div class="form-group">
                     <label for="name">Title</label>
-                    <input class="form-control" type="text" name="name" id="name" value="<%=post.name%>"placeholder="Honey does not spoil.">
+                    <input class="form-control" type="text" name="name" id="name" value="<%=post.name%>">
                 </div>
                 <div class="form-group">
                     <label for="image">Image Url</label>
-                    <input class="form-control" type="text" name="image" id="image" value="<%=post.image%>" placeholder="https://images.unsplash.com/...">
+                    <input class="form-control" type="text" name="image" id="image" value="<%=post.image%>" >
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <input class="form-control" type="text" name="description" id="description" value="<%=post.description%>" placeholder="You could feasibly eat 3000 year old honey.">
+                    <input class="form-control" type="text" name="description" id="description" value="<%=post.description%>" >
+                </div>
+                <div class="form-group">
+                    <label for="source">Source</label>
+                    <input class="form-control" type="text" name="source" id="source" value="<%=post.source%>">
                 </div>
                 
                 <div class="form-group">
@@ -28,6 +32,16 @@
                    <label for="other" class="btn btn-outline-secondary">
                     <input type="radio" id="other">Other, please specify</label>
                    <input class="form-control otherTextBox" type="text" name="type" placeholder="Music, Movie, Cooking, etc." disabled>
+                </div>
+                 <div class="fact-myth form-group button-group">
+                  <p>Is this a fact or a myth?</p>
+          
+                  <label for="fact" class="btn btn-outline-secondary">
+                    <input type="radio" name="factOrMyth" id="fact" value="Fact" autocomplete="off"> Fact
+                  </label>
+                  <label for="myth" class="btn btn-outline-secondary">
+                    <input type="radio" name="factOrMyth" id="myth" value="Myth" autocomplete="off"> Myth
+                  </label>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Update</button>
