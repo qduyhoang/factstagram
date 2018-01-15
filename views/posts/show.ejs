@@ -21,11 +21,9 @@
                      <% } }  %>
                         
         </h4>
-        <h4 class="text-center">
-          <a><%= post.name %></a>
-        </h4>
-        <p><%= post.description %></p>
-        <p style="text-align:right">Source:<a href="<%=post.source%>"><strong> <em><%=post.source %></em></strong></a></p>
+        <h3 class="text-center"><a><%= post.name %></a> </h3>
+        <h5><%= post.description %></h5>
+        <% if (post.source != ""){%><p style="text-align:right">Source:<a href="<%=post.source%>"><strong> <em><%=post.source %></em></strong></a></p><% } %>
         <p>
           <em>Submitted by: <%= post.author.username %>, <%= moment(post.createdAt).fromNow() %></em>
         </p>

@@ -28,8 +28,8 @@
                 <div>
                    <a href="/posts/<%= post._id %>"><img class="card-img-top" src="<%= post.image %>"></a>
                    <div class="card-block">
-                       <h4 class="card-title"><%= post.name %></h4>
-                       <p class="card-text" ><%= post.summary %>...</p>
+                       <h4 class="card-text"><%= post.name %></h4>
+                   
                     <% if (post.type != null){ %>
                     <% post.type.split(",").forEach(function(type){ %>
                 
