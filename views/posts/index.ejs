@@ -24,13 +24,13 @@
      <% } %>
      <div class="text-center flex-wrap" id="post-grid">
         <% posts.forEach(function(post){ %>
-            <div class="card" style="width: 17rem;">
-                <div>
+            <div id ="<%=post._id%>" class="card" style="width: 17rem;">
                    <a href="/posts/<%= post._id %>"><img class="card-img-top" src="<%= post.image %>"></a>
                    <div class="card-block">
                        <h4 class="card-text"><%= post.name %></h4>
                        <h4 class="card-text"><%= post.numFact %></h4>
                        <h4 class="card-text"><%= post.numMyth %></h4>
+                       <h4 class="card-text"><%= post.voters %></h4>
                    
                     <% if (post.type != null){ %>
                     <% post.type.split(",").forEach(function(type){ %>
@@ -44,7 +44,6 @@
                        <a href="/posts/<%= post._id %>" class="btn btn-info">Read more</a>
                    </p>
                 </div>
-            </div>
         <% }); %>
     </div>
 </div>

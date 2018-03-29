@@ -24,6 +24,8 @@ mongoose.Promise = global.Promise;
 
 const databaseUrl = process.env.MONGODB_URL || 'mongodb://localhost/coolplacesnearme';
 
+
+
 mongoose.connect(databaseUrl, { useMongoClient: true })
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));

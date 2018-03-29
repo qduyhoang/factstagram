@@ -11,7 +11,7 @@ function escapeRegex(text) {
 
 //INDEX - show all posts
 router.get("/", function(req, res){
-    var noMatch = null;
+  var noMatch = null;
   if(req.query.search) {
       const regex = new RegExp(escapeRegex(req.query.search), 'gi');
       // Get all posts from DB
@@ -20,7 +20,7 @@ router.get("/", function(req, res){
             console.log(err);
          } else {
              if (allposts.length <1){
-                 noMatch = "Can not find the fact you are looking for";
+                 noMatch = "Can not find the post you are looking for";
              }
             res.render("posts/index", {posts: allposts, noMatch: noMatch})
          }
@@ -89,21 +89,32 @@ router.get("/:id/edit", isLoggedIn, checkUserpost, function(req, res){
 });
 
 //POST - updates vote counts for fact and myth
-router.post("/:id", function(req, res){
+router.post("/:id", isLoggedIn, function(req, res){
+    var userId = req.user._id;
     var postType = Object.keys(req.body)[0]
+    //TO-DO: Figure out why putting variable postType in place of numFace doesnt work
     if (postType == "numFact"){
-        post.findByIdAndUpdate({_id: req.params.id}, {$inc: {numFact: 1}}, function(err, post){
+        var newData = {
+        $addToSet: {voters: userId}, 
+        $inc: {numFact: 1}
+        }
+        post.findByIdAndUpdate(req.params.id, newData , function(err, post){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
         }else{
+            console.log(userId)
             console.log(postType)
             req.flash("success", "You just voted");
             res.redirect("/posts/" + post._id);
         }
       });
     } else if (postType == "numMyth"){
-        post.findByIdAndUpdate({_id: req.params.id}, {$inc: {numMyth: 1}}, function(err, post){
+        var newData = {
+        $addToSet: {voters: userId}, 
+        $inc: {numMyth: 1}
+        }
+        post.findByIdAndUpdate(req.params.id, newData, function(err, post){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
@@ -120,7 +131,7 @@ router.post("/:id", function(req, res){
 // PUT - updates post in the database
 router.put("/:id", function(req, res){
     var newData = {name: req.body.name, image: req.body.image, description: req.body.description, type: req.body.type, factOrMyth: req.body.factOrMyth, source: req.body.source};
-    post.findByIdAndUpdate(req.params.id, {$set: newData}, {$inc: {numFact: 1}}, function(err, post){
+    post.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, post){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
