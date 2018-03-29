@@ -12,7 +12,8 @@
         <script>
                 function updateVoteCount(postType, postId){
                     postId = postId.substring(7)
-                    axios.post('/posts/' + postId, {data : {postType: postType}})
+                    axios.post('/posts/' + postId, postType)
+                
                     // disable the button, so a user san't vote twice
                     toBeDisabled = postType == "numFact"? "numMyth":"numFact"
                     document.querySelector('#'+toBeDisabled+postId).disabled = true;

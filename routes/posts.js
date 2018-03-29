@@ -90,17 +90,32 @@ router.get("/:id/edit", isLoggedIn, checkUserpost, function(req, res){
 
 //POST - updates vote counts for fact and myth
 router.post("/:id", function(req, res){
-    var postType = req.body.postType
-    post.findByIdAndUpdate({_id: req.params.id}, {$inc: {numMyth: 1}}, function(err, post){
+    var postType = Object.keys(req.body)[0]
+    if (postType == "numFact"){
+        post.findByIdAndUpdate({_id: req.params.id}, {$inc: {numFact: 1}}, function(err, post){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
         }else{
-            alert(postType)
+            console.log(postType)
+            req.flash("success", "You just voted");
+            res.redirect("/posts/" + post._id);
+        }
+      });
+    } else if (postType == "numMyth"){
+        post.findByIdAndUpdate({_id: req.params.id}, {$inc: {numMyth: 1}}, function(err, post){
+        if(err){
+            req.flash("error", err.message);
+            res.redirect("back");
+        }else{
+            console.log(postType)
             req.flash("success", "You just voted");
             res.redirect("/posts/" + post._id);
         }
     });
+    }
+    
+    
 });
 // PUT - updates post in the database
 router.put("/:id", function(req, res){
