@@ -14,13 +14,24 @@
           src="https://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
           crossorigin="anonymous"></script>
+        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
         <script>
+                  $(".card").flip({
+                    axis: 'y',
+                    trigger: 'click'
+                  });
+              
                 function updateVoteCount(postType, postId){
                     postId = postId.substring(7)
                     axios.post('/posts/' + postId, postType)
                     // disable the button, so a user san't vote twice
                     toBeDisabled = postType == "numFact"? "numMyth":"numFact"
-                    /*$('#'+toBeDisabled+ postId).detach();*/
+                    $('.'+postId).load(document.URL +  ' .'+ postId);
+                    $('#'+toBeDisabled+ postId).detach();
+                   /* var voteCount = document.querySelector('#vote-count-' + pollId + '-' + choice);
+                    voteCount.textContent++;
+                    voteCount.style.color = 'green';
+                    voteCount.style.fontWeight = '900';*/
                 };
         </script>
     </body>

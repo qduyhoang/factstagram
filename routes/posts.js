@@ -61,8 +61,6 @@ router.post("/", isLoggedIn, function(req, res){
             res.redirect("/posts");
         }
     });
-  
-  
 });
 
 //NEW - show form to create new post
@@ -90,43 +88,34 @@ router.get("/:id/edit", isLoggedIn, checkUserpost, function(req, res){
 
 //POST - updates vote counts for fact and myth
 router.post("/:id", isLoggedIn, function(req, res){
-    var userId = req.user._id;
+    var userId = req.user._id
     var postType = Object.keys(req.body)[0]
     //TO-DO: Figure out why putting variable postType in place of numFace doesnt work
-    if (postType == "numFact"){
-        var newData = {
-        $addToSet: {voters: userId}, 
-        $inc: {numFact: 1}
-        }
-        post.findByIdAndUpdate(req.params.id, newData , function(err, post){
+    post.findById(req.params.id, function(err, post){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
         }else{
-            console.log(userId)
-            console.log(postType)
+            if (post.voters.indexOf(userId) > -1){
+                //TO-DO: flash error message
+                req.flash("error", "You already voted");
+                console.log("already voted")
+            }
+            else{
+            post.voters.push(userId);
+            if (postType == "numFact"){ 
+                post.numFact++;
+            }
+            else{
+                post.numMyth++;
+            }
+            post.save();
+            console.log(post.voters)
             req.flash("success", "You just voted");
             res.redirect("/posts/" + post._id);
+            }
         }
-      });
-    } else if (postType == "numMyth"){
-        var newData = {
-        $addToSet: {voters: userId}, 
-        $inc: {numMyth: 1}
-        }
-        post.findByIdAndUpdate(req.params.id, newData, function(err, post){
-        if(err){
-            req.flash("error", err.message);
-            res.redirect("back");
-        }else{
-            console.log(postType)
-            req.flash("success", "You just voted");
-            res.redirect("/posts/" + post._id);
-        }
-    });
-    }
-    
-    
+  });
 });
 // PUT - updates post in the database
 router.put("/:id", function(req, res){
