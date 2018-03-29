@@ -6,9 +6,10 @@ var postSchema = new mongoose.Schema({
    description: String,
    createdAt: { type: Date, default: Date.now },
    type: String,
-   factOrMyth: String,
    source: String,
-   summary: String,
+   factOrMyth: String,
+   numFact: Number,
+   numMyth: Number,
    author: {
       id: {
          type: mongoose.Schema.Types.ObjectId,

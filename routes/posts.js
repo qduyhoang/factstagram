@@ -15,7 +15,7 @@ router.get("/", function(req, res){
   if(req.query.search) {
       const regex = new RegExp(escapeRegex(req.query.search), 'gi');
       // Get all posts from DB
-      post.find({$or: [{name: regex},{type: regex},{desc: regex},{factOrMyth: regex},{'author.username': regex}]}, function(err, allposts){
+      post.find({$or: [{name: regex},{type: regex},{desc: regex},{'author.username': regex}]}, function(err, allposts){
          if(err){
             console.log(err);
          } else {
@@ -48,9 +48,11 @@ router.post("/", isLoggedIn, function(req, res){
   var type = req.body.type;
   var factOrMyth = req.body.factOrMyth;
   var source = req.body.source;
+  var numFact = 0;
+  var numMyth = 0;
  
 	
-  var newpost = {name: name, image: image, description: desc, author:author, type: type, factOrMyth: factOrMyth, source: source};
+  var newpost = {name: name, image: image, description: desc, author:author, type: type, factOrMyth: factOrMyth, source: source, numFact: numFact, numMyth: numMyth};
     // Create a new post and save to DB
     post.create(newpost, function(err, newlyCreated){
         if(err){
@@ -86,10 +88,24 @@ router.get("/:id/edit", isLoggedIn, checkUserpost, function(req, res){
   res.render("posts/edit", {post: req.post});
 });
 
+//POST - updates vote counts for fact and myth
+router.post("/:id", function(req, res){
+    var postType = req.body.postType
+    post.findByIdAndUpdate({_id: req.params.id}, {$inc: {numMyth: 1}}, function(err, post){
+        if(err){
+            req.flash("error", err.message);
+            res.redirect("back");
+        }else{
+            alert(postType)
+            req.flash("success", "You just voted");
+            res.redirect("/posts/" + post._id);
+        }
+    });
+});
 // PUT - updates post in the database
 router.put("/:id", function(req, res){
-var newData = {name: req.body.name, image: req.body.image, description: req.body.description, type: req.body.type, factOrMyth: req.body.factOrMyth, source: req.body.source};
-    post.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, post){
+    var newData = {name: req.body.name, image: req.body.image, description: req.body.description, type: req.body.type, factOrMyth: req.body.factOrMyth, source: req.body.source};
+    post.findByIdAndUpdate(req.params.id, {$set: newData}, {$inc: {numFact: 1}}, function(err, post){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");

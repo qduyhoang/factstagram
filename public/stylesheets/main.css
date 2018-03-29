@@ -60,7 +60,7 @@ body {
 
 
 input[type="radio"] {
-    position: absolute;
+    position: fixed;
     top: -20px;
 }
 label{

@@ -29,18 +29,16 @@
                    <a href="/posts/<%= post._id %>"><img class="card-img-top" src="<%= post.image %>"></a>
                    <div class="card-block">
                        <h4 class="card-text"><%= post.name %></h4>
+                       <h4 class="card-text"><%= post.numFact %></h4>
+                       <h4 class="card-text"><%= post.numMyth %></h4>
                    
                     <% if (post.type != null){ %>
                     <% post.type.split(",").forEach(function(type){ %>
-                
                       <a href="/posts?search=<%=type.charAt(0).toUpperCase()+type.slice(1)%>" class="btn btn-outline-primary mb-2"><%=type.charAt(0).toUpperCase()+type.slice(1)%></a>
                     <% })} %>
-                    <% if (post.factOrMyth != null){ %>
-                         <% if (post.factOrMyth == "Fact"){ %>
-                                 <a href="/posts?search=<%=post.factOrMyth%>" class="btn btn-outline-success mb-2"><%=post.factOrMyth%></a>
-                         <% }else { %>
-                            <a href="/posts?search=<%=post.factOrMyth%>" class="btn btn-outline-danger mb-2"><%=post.factOrMyth%></a>
-                     <% } }  %>
+                
+                      <Button class="btn btn-outline-success mb-2" id = "numFact<%=post._id%>" value ="numFact" onclick="updateVoteCount(this.value, this.id)">Fact</Button>
+                      <Button class="btn btn-outline-danger mb-2" id = "numMyth<%=post._id%>" value = "numMyth" onclick="updateVoteCount(this.value, this.id)">Myth</Button>
                    </div>
                    <p>
                        <a href="/posts/<%= post._id %>" class="btn btn-info">Read more</a>
@@ -50,5 +48,6 @@
         <% }); %>
     </div>
 </div>
+
 
 <% include ../partials/footer %>
