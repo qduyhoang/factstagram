@@ -24,8 +24,8 @@
      <% } %>
      <div class="text-center flex-wrap" id="post-grid">
         <% posts.forEach(function(post){ %>
-            <div class="card" style="width: 17rem; height: 20rem">
-                <div class ="flipper">
+            <div class="card" style="width: 17rem; height: 25rem">
+                <div id ="flip<%=post._id%>" class ="flipper">
                     <div class="front">
                         <img class="card-img-top" src="<%= post.image %>">
                         <div class="card-body">
@@ -34,8 +34,10 @@
                                     <% post.type.split(",").forEach(function(type){ %>
                                       <a href="/posts?search=<%=type.charAt(0).toUpperCase()+type.slice(1)%>" class="btn btn-outline-primary mb-2"><%=type.charAt(0).toUpperCase()+type.slice(1)%></a>
                                     <% })} %>
+                                    <div>
                                     <Button class="btn btn-outline-success mb-2" id = "numFact<%=post._id%>" value ="numFact" onclick="updateVoteCount(this.value, this.id)">Fact</Button>
                                     <Button class="btn btn-outline-danger mb-2" id = "numMyth<%=post._id%>" value = "numMyth" onclick="updateVoteCount(this.value, this.id)">Myth</Button>
+                                    </div>
                         </div>
                     </div>
                     <div class="back card-body">

@@ -18,7 +18,7 @@
         <script>
                   $(".flipper").flip({
                     axis: 'y',
-                    trigger: 'click',
+                    trigger: 'manual',
                   });
               
                 function updateVoteCount(postType, postId){
@@ -27,7 +27,12 @@
                     // disable the button, so a user san't vote twice
                     toBeDisabled = postType == "numFact"? "numMyth":"numFact"
                     $('.'+postId).load(document.URL +  ' .'+ postId);
-                    $('#'+toBeDisabled+ postId).detach();
+                    $('#'+toBeDisabled+ postId).disabled = true;
+                    if (postType == "numFact"){
+                      $('#'+postId).removeClass("btn-outline-secondary")
+                      $('#'+postId).addClass("btn-outline-success")
+                    }
+                    $("#flip"+postId).flip('toggle');
                    /* var voteCount = document.querySelector('#vote-count-' + pollId + '-' + choice);
                     voteCount.textContent++;
                     voteCount.style.color = 'green';
