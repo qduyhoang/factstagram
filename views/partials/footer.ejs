@@ -21,17 +21,13 @@
                     trigger: 'manual',
                   });
               
-                function updateVoteCount(postType, postId){
-                    postId = postId.substring(7)
-                    axios.post('/posts/' + postId, postType)
+                function updateVoteCount(userChoice, postId){
+                    postId = postId.substring(4)
+                    axios.post('/posts/' + postId, userChoice)
                     // disable the button, so a user san't vote twice
-                    toBeDisabled = postType == "numFact"? "numMyth":"numFact"
+                    toBeDisabled = userChoice == "Fact"? "Myth":"Fact"
                     $('.'+postId).load(document.URL +  ' .'+ postId);
                     $('#'+toBeDisabled+ postId).disabled = true;
-                    if (postType == "numFact"){
-                      $('#'+postId).removeClass("btn-outline-secondary")
-                      $('#'+postId).addClass("btn-outline-success")
-                    }
                     $("#flip"+postId).flip('toggle');
                    /* var voteCount = document.querySelector('#vote-count-' + pollId + '-' + choice);
                     voteCount.textContent++;

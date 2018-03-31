@@ -1,6 +1,7 @@
 var express = require("express");
 var router  = express.Router();
 var post = require("../models/post");
+var user = require("../models/user")
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
 var { isLoggedIn, checkUserpost, checkUserComment, isAdmin } = middleware; // destructuring assignment
@@ -87,35 +88,34 @@ router.get("/:id/edit", isLoggedIn, checkUserpost, function(req, res){
 });
 
 //POST - updates vote counts for fact and myth
+//POST - updates vote counts for fact and myth
 router.post("/:id", isLoggedIn, function(req, res){
-    var userId = req.user._id
-    var postType = Object.keys(req.body)[0]
-    //TO-DO: Figure out why putting variable postType in place of numFace doesnt work
+    var votedPost = {
+        postId: req.params.id,
+        userChoice: Object.keys(req.body)[0]
+    };
+    var userId = req.user._id;
     post.findById(req.params.id, function(err, post){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
-        }else{
-            if (post.voters.indexOf(userId) > -1){
-                //TO-DO: flash error message
-                req.flash("error", "You already voted");
-                console.log("already voted")
-            }
-            else{
-            post.voters.push(userId);
-            if (postType == "numFact"){ 
-                post.numFact++;
-            }
-            else{
-                post.numMyth++;
-            }
-            post.save();
-            console.log(post.voters)
-            req.flash("success", "You just voted");
-            res.redirect("/posts/" + post._id);
-            }
+        };
+        if (votedPost.userChoice == "Fact"){
+            post.numFact++;
+            console.log(post.numFact)
         }
-  });
+        else if (votedPost.userChoice == "Myth"){
+            post.numMyth++;
+            console.log(post.numMyth)
+        };
+        user.findById(userId, function(err, user){
+            if (err){
+                req.flash("error", err.message);
+                res.redirect("back");}
+            user.votedPosts.push(votedPost);
+            user.save();
+        });
+    });
 });
 // PUT - updates post in the database
 router.put("/:id", function(req, res){

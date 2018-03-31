@@ -10,8 +10,6 @@ var postSchema = new mongoose.Schema({
    factOrMyth: String,
    numFact: Number,
    numMyth: Number,
-   voters: [String
-      ],
    author: {
       id: {
          type: mongoose.Schema.Types.ObjectId,
