@@ -87,7 +87,7 @@ router.get("/:id/edit", isLoggedIn, checkUserpost, function(req, res){
   res.render("posts/edit", {post: req.post});
 });
 
-//POST - updates vote counts for fact and myth
+
 //POST - updates vote counts for fact and myth
 router.post("/:id", isLoggedIn, function(req, res){
     var votedPost = {
