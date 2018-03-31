@@ -8,8 +8,8 @@ var postSchema = new mongoose.Schema({
    type: String,
    source: String,
    factOrMyth: String,
-   numFact: 0,
-   numMyth: 0,
+   numFact: Number,
+   numMyth: Number,
    author: {
       id: {
          type: mongoose.Schema.Types.ObjectId,

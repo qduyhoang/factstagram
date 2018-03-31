@@ -49,8 +49,8 @@ router.post("/", isLoggedIn, function(req, res){
   var type = req.body.type;
   var factOrMyth = req.body.factOrMyth;
   var source = req.body.source;
-  var numFact = 0;
-  var numMyth = 0;
+  var numFact = 0
+  var numMyth = 0
  
 	
   var newpost = {name: name, image: image, description: desc, author:author, type: type, factOrMyth: factOrMyth, source: source, numFact: numFact, numMyth: numMyth};
@@ -102,12 +102,11 @@ router.post("/:id", isLoggedIn, function(req, res){
         };
         if (votedPost.userChoice == "Fact"){
             post.numFact++;
-            console.log(post.numFact)
         }
         else if (votedPost.userChoice == "Myth"){
             post.numMyth++;
-            console.log(post.numMyth)
         };
+        post.save()
         user.findById(userId, function(err, user){
             if (err){
                 req.flash("error", err.message);

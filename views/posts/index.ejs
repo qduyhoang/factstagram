@@ -1,7 +1,7 @@
 <% include ../partials/header %> 
 
      <header class="jumbotron">
-         <div class="container">
+         <div id="shitHole" class="container">
             <% var href = stuff.url %>
             <% var currentURL = stuff.url.substr(stuff.url.indexOf('?search=')+8) %>
             <% if (currentURL.length<1 || currentURL == "Fact") {%>
@@ -26,7 +26,7 @@
         <% posts.forEach(function(post){ %>
             <div class="card" style="width: 17rem; height: 25rem">
                 <div id ="flip<%=post._id%>" class ="flipper">
-                    <div class="front">
+                    <div id="front<%=post._id%>" class="front">
                         <img class="card-img-top" src="<%= post.image %>">
                         <div class="card-body">
                                 <h5 class="card-title"><%= post.name %></h5>
@@ -40,11 +40,12 @@
                                         <%     for (var i = 0; i < currentUser.votedPosts.length; i++){ %>
                                         <%         if (currentUser.votedPosts[i].postId == post._id){ %>
                                         <%             notVoted = false; %>
-                                        <div class="d-inline">You chose:<Button class ="btn btn-outline-secondary" disabled=""><%=currentUser.votedPosts[i].userChoice%></Button>
+                                        <div class="d-inline">You chose: <Button class ="btn btn-outline-secondary" disabled=""><%=currentUser.votedPosts[i].userChoice%></Button>
                                         <% if (currentUser.votedPosts[i].userChoice == post.factOrMyth){ %>
                                         <i class="fas fa-check">Correct</i>
                                         <% } else { %>
-                                        <i class="fas fa-times">Incorrect</i><% }; %></div>
+                                        <i class="fas fa-times">Incorrect</i><% }; %>
+                                        <a href="/posts/<%= post._id %>" class="btn btn-info mt-2">Read more</a></div>
                                         <% };};} if (notVoted){ %>
                                         <Button class="btn btn-outline-success mb-2" id = "Fact<%=post._id%>" value ="Fact" onclick="updateVoteCount(this.value, this.id)">Fact</Button>
                                         <Button class="btn btn-outline-danger mb-2" id = "Myth<%=post._id%>" value = "Myth" onclick="updateVoteCount(this.value, this.id)">Myth</Button>
@@ -52,7 +53,7 @@
                                     </div>
                                 </div>
                         </div>
-                    <div class="back card-body">
+                    <div id="back<%=post._id%>" class="back card-body">
                         <% var total = post.numFact+post.numMyth %>
                         <h5 class="card-title"><%=post.name%></h5>
                         <h5 class="card-name">Total voters: <%=total%></h5>
