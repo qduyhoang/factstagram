@@ -53,7 +53,11 @@
                                 </div>
                         </div>
                     <div class="back card-body">
+                        <% var total = post.numFact+post.numMyth %>
                         <h5 class="card-title"><%=post.name%></h5>
+                        <h5 class="card-name">Total voters: <%=total%></h5>
+                        <h5 class="card-name"><%=total == 0? 0:(post.numFact/total*100).toFixed(2)%>% think that this is a Fact</h5>
+                        <h5 class="card-name"><%=total == 0? 0:(post.numMyth/total*100).toFixed(2)%>% think that this is a Myth</h5>
                         <p><a href="/posts/<%= post._id %>" class="btn btn-info">Read more</a></p>
                     </div>
                 </div>
