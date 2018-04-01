@@ -11,6 +11,10 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+img{
+  max-height: 200px;
+  width: 100%;
+}
 .footer {
   position: absolute;
   bottom: 0;
