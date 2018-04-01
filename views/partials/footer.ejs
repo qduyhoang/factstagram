@@ -5,17 +5,16 @@
           </div>
         </footer>
  
-
-        <!-- Bootstrap JS CDN -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type="text/javascript" src="../scripts/newAndEdit.js"></script>
           <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script
           src="https://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
           crossorigin="anonymous"></script>
+        <script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js></script>
         <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+      
         <script>
                   $(".flipper").flip({
                     axis: 'y',
@@ -32,12 +31,10 @@
                         $('#back'+postId).load(document.URL +  ' #back'+postId);
                       })
                     });
-
-                   /* var voteCount = document.querySelector('#vote-count-' + pollId + '-' + choice);
-                    voteCount.textContent++;
-                    voteCount.style.color = 'green';
-                    voteCount.style.fontWeight = '900';*/
                 };
+                $(function () {
+                  $('[data-toggle="tooltip"]').tooltip()
+                });
         </script>
     </body>
 </html>

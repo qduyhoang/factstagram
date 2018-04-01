@@ -11,6 +11,7 @@ var express     = require("express"),
     User        = require("./models/user"),
     session = require("express-session"),
     methodOverride = require("method-override");
+    
 // configure dotenv
 require('dotenv').load();
 
