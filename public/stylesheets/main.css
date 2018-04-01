@@ -11,8 +11,9 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-img{
+.card-img-top{
   max-height: 200px;
+  height: 100%;
   width: 100%;
 }
 .footer {
