@@ -37,18 +37,19 @@
                                       <a href="/posts?search=<%=type.charAt(0).toUpperCase()+type.slice(1)%>" class="btn btn-outline-primary mb-2"><%=type.charAt(0).toUpperCase()+type.slice(1)%></a>
                                     <% })} %>
                                     <div>
+                        
                                         <% var notVoted = true %>
                                         <%if (currentUser){ %>
-                                        <%     for (var i = 0; i < currentUser.votedPosts.length; i++){ %>
-                                        <%         if (currentUser.votedPosts[i].postId == post._id){ %>
+                                        <%     currentUser.votedPosts.forEach(function(votedPost){ %>
+                                        <%         if (post._id == votedPost.postId){ %>
                                         <%             notVoted = false; %>
                                         <div class="d-inline">You chose: <Button class ="btn btn-outline-secondary" disabled=""><%=currentUser.votedPosts[i].userChoice%></Button>
-                                        <% if (currentUser.votedPosts[i].userChoice == post.factOrMyth){ %>
+                                        <% if (votedPost.userChoice == post.factOrMyth){ %>
                                         <i class="fas fa-check">Correct</i>
                                         <% } else { %>
                                         <i class="fas fa-times">Incorrect</i><% }; %>
                                         <a href="/posts/<%= post._id %>" class="btn btn-info mt-2">Read more</a></div>
-                                        <% };};} if (notVoted){ %>
+                                        <% };});} if (notVoted){ %>
                                         <Button class="btn btn-outline-success mb-2" id = "Fact<%=post._id%>" value ="Fact" onclick="updateVoteCount(this.value, this.id, <%=toLogin%>)">Fact</Button>
                                         <Button class="btn btn-outline-danger mb-2" id = "Myth<%=post._id%>" value = "Myth" onclick="updateVoteCount(this.value, this.id, <%=toLogin%>)">Myth</Button>
                                         <% } %>

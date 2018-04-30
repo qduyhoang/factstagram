@@ -1,0 +1,23 @@
+<% include ./partials/header %>
+<div class="row">
+    <!-- START SIDE BAR -->
+    <div class="col-md-3">
+        <p class="lead">Information</p>
+    </div>
+    <!-- END SIDE BAR -->
+  
+  
+    <div class="col-md-9">
+        <%votedPosts.forEach(function(votedPost){ %>
+        <div class="card" style="width: 17rem; height: 29rem">
+            <img class="card-img-top" src="https://www.pexels.com/photo/woman-in-white-crew-neck-sweatshirt-holding-and-looking-at-chocolate-doughnut-inside-room-799255/">
+            <div class="card-body">
+                <div class="card-title"><h4><%=votedPost.name%></h4></div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+  
+      
+<% include ./partials/footer %>

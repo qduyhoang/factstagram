@@ -5,6 +5,7 @@ var user = require("../models/user")
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
 var { isLoggedIn, checkUserpost, checkUserComment, isAdmin } = middleware; // destructuring assignment
+var ObjectID = require('mongodb').ObjectID;
 // Define escapeRegex function for search feature
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
@@ -63,6 +64,7 @@ router.get("/newest", function(req, res){
     })
 });
 
+//Create a new post
 router.post("/", isLoggedIn, function(req, res){
   var name = req.body.name;
   var image = req.body.image;
@@ -116,16 +118,15 @@ router.get("/:id/edit", isLoggedIn, checkUserpost, function(req, res){
 
 //POST - updates vote counts for fact and myth
 router.post("/:id", isLoggedIn, function(req, res){
-    var votedPost = {
-        postId: req.params.id,
-        userChoice: Object.keys(req.body)[0]
-    };
     var userId = req.user._id;
     post.findById(req.params.id, function(err, post){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
         };
+        var votedPost = {
+        postId: post,
+        userChoice: Object.keys(req.body)[0]};
         if (votedPost.userChoice == "Fact"){
             post.numFact++;
         }

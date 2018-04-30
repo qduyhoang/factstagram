@@ -5,10 +5,13 @@ var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
     isAdmin: {type: Boolean, default: false},
-    votedPosts: [
-        {postId: String,
-        userChoice: String}
-        ]
+    votedPosts: [{
+        postId: {           
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "post",
+        },
+        userChoice: String
+        }]
 });
 
 UserSchema.plugin(passportLocalMongoose)
