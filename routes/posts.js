@@ -39,10 +39,22 @@ router.get("/", function(req, res){
 });
 
 
-//Get post based on number of votes
+//Get most voted posts
 router.get("/votes", function(req, res){
     //Get all posts from DB
     post.find().sort({totalVotes: -1}).exec(function (err, allposts){
+        if (err){
+            console.log(err);
+        }else {
+            res.render("posts/index", {posts: allposts, noMatch: null})
+        }
+    })
+});
+
+//Get most recent posts
+router.get("/newest", function(req, res){
+    //Get all posts from DB
+    post.find().sort({_id: -1}).exec(function (err, allposts){
         if (err){
             console.log(err);
         }else {
