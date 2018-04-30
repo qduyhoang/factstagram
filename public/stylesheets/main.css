@@ -85,3 +85,42 @@ label{
       line-height: 1.5;
       text-overflow: ellipsis;
 }
+
+#flash {
+.notice {
+padding: 8px 14px;
+margin-bottom: 20px;
+background-color: #fcf8e3;
+@include border-radius(2px);
+}
+.flash-message {
+display: inline-block;
+}
+button.flash-close {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 30px;
+font-weight: bold;
+line-height: 25px;
+padding: 0;
+margin: 0;
+float: right;
+color: #984949;
+cursor: pointer;
+border: 0;
+background: transparent;
+-webkit-appearance: none;
+}
+.success {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: #468847;
+}
+.error {
+background-color: #ead2d3;
+border-color: #eed3d7;
+color: #984949;
+}
+.info {
+background-color: #d9edf7;
+color: #3a87ad;
+}
