@@ -42,7 +42,7 @@ router.get("/", function(req, res){
 //Get post based on number of votes
 router.get("/votes", function(req, res){
     //Get all posts from DB
-    post.find().sort({totalVotes: 1}).exec(function (err, allposts){
+    post.find().sort({totalVotes: -1}).exec(function (err, allposts){
         if (err){
             console.log(err);
         }else {
