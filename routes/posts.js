@@ -38,6 +38,19 @@ router.get("/", function(req, res){
   }
 });
 
+
+//Get post based on number of votes
+router.get("/votes", function(req, res){
+    //Get all posts from DB
+    post.find().sort({totalVotes: 1}).exec(function (err, allposts){
+        if (err){
+            console.log(err);
+        }else {
+            res.render("posts/index", {posts: allposts, noMatch: null})
+        }
+    })
+});
+
 router.post("/", isLoggedIn, function(req, res){
   var name = req.body.name;
   var image = req.body.image;
@@ -51,9 +64,10 @@ router.post("/", isLoggedIn, function(req, res){
   var source = req.body.source;
   var numFact = 0
   var numMyth = 0
+  var totalVotes = 0
  
 	
-  var newpost = {name: name, image: image, description: desc, author:author, type: type, factOrMyth: factOrMyth, source: source, numFact: numFact, numMyth: numMyth};
+  var newpost = {name: name, image: image, description: desc, author:author, type: type, factOrMyth: factOrMyth, source: source, numFact: numFact, numMyth: numMyth, totalVotes: totalVotes};
     // Create a new post and save to DB
     post.create(newpost, function(err, newlyCreated){
         if(err){
@@ -106,6 +120,7 @@ router.post("/:id", isLoggedIn, function(req, res){
         else if (votedPost.userChoice == "Myth"){
             post.numMyth++;
         };
+        post.totalVotes++;
         post.save()
         user.findById(userId, function(err, user){
             if (err){
