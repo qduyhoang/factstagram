@@ -23,6 +23,8 @@
      <h3><%= noMatch %></h3>
      <% } %>
      <div class="text-center flex-wrap" id="post-grid">
+        <%if (currentUser == null){ %>
+        <%var toLogin = true } %>
         <% posts.forEach(function(post){ %>
             <div class="card" style="width: 17rem; height: 29rem">
                 <div id ="flip<%=post._id%>" class ="flipper">
@@ -47,8 +49,8 @@
                                         <i class="fas fa-times">Incorrect</i><% }; %>
                                         <a href="/posts/<%= post._id %>" class="btn btn-info mt-2">Read more</a></div>
                                         <% };};} if (notVoted){ %>
-                                        <Button class="btn btn-outline-success mb-2" id = "Fact<%=post._id%>" value ="Fact" onclick="updateVoteCount(this.value, this.id)">Fact</Button>
-                                        <Button class="btn btn-outline-danger mb-2" id = "Myth<%=post._id%>" value = "Myth" onclick="updateVoteCount(this.value, this.id)">Myth</Button>
+                                        <Button class="btn btn-outline-success mb-2" id = "Fact<%=post._id%>" value ="Fact" onclick="updateVoteCount(this.value, this.id, <%=toLogin%>)">Fact</Button>
+                                        <Button class="btn btn-outline-danger mb-2" id = "Myth<%=post._id%>" value = "Myth" onclick="updateVoteCount(this.value, this.id, <%=toLogin%>)">Myth</Button>
                                         <% } %>
                                     </div>
                                 </div>

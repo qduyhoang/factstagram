@@ -21,17 +21,20 @@
                     trigger: 'click',
                   });
               
-                function updateVoteCount(userChoice, postId){
+                function updateVoteCount(userChoice, postId, toLogin){
                     postId = postId.substring(4)
                     axios.post('/posts/' + postId, userChoice)
-                    
-                    $("#flip"+postId).flip('true', function(){
-                      jQuery(document).ready(function(){
-                        $('#front'+postId).load(document.URL +  ' #front'+postId);
-                        $('#back'+postId).load(document.URL +  ' #back'+postId);
-                      })
-                    });
+                    if (toLogin){
+                      location.href="/login"
+                    } else{
+                      $("#flip"+postId).flip('true', function(){
+                        jQuery(document).ready(function(){
+                          $('#front'+postId).load(document.URL +  ' #front'+postId);
+                          $('#back'+postId).load(document.URL +  ' #back'+postId);
+                        })
+                      })};
                 };
+                
                 $(function () {
                   $('[data-toggle="tooltip"]').tooltip()
                 });
