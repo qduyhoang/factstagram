@@ -41,9 +41,9 @@
                                         <% var notVoted = true %>
                                         <%if (currentUser){ %>
                                         <%     currentUser.votedPosts.forEach(function(votedPost){ %>
-                                        <%         if (post._id == votedPost.postId){ %>
+                                        <%         if (votedPost.postId.equals(post._id)){ %>
                                         <%             notVoted = false; %>
-                                        <div class="d-inline">You chose: <Button class ="btn btn-outline-secondary" disabled=""><%=currentUser.votedPosts[i].userChoice%></Button>
+                                        <div class="d-inline">You chose: <Button class ="btn btn-outline-secondary" disabled=""><%=votedPost.userChoice%></Button>
                                         <% if (votedPost.userChoice == post.factOrMyth){ %>
                                         <i class="fas fa-check">Correct</i>
                                         <% } else { %>
