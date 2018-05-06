@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://www.factstagram.com/</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/newest</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/votes</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/login</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/register</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=History</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d17edb63972001470c2b5</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=Nature</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d1d376cf078001487d2c7</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=General</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d1e679f2bb40014779d01</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d1ff4abc55c0014e7020d</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=Daily%20life</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d20e1abc55c0014e7020e</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=Fun</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d22225b909600145dde55</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d228b5b909600145dde56</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d234d5b909600145dde57</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d23f45b909600145dde58</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d24c45b909600145dde59</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d32790bec720014479284</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d33500bec720014479285</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d34830bec720014479286</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=Food</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d352d0bec720014479287</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d36e90bec720014479289</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=Health</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d379d0bec72001447928a</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d37eb0bec72001447928b</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=Science</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d38ba0bec72001447928d</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d39400bec72001447928e</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d3a0b0bec720014479290</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d3a610bec720014479291</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d3ad40bec720014479292</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d3b5e0bec720014479293</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d3bbe0bec720014479294</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d3c040bec720014479295</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a720e992200570014e5cfd4</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a7745072406e20014a29d1a</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a7745ca2406e20014a29d1b</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a7746bc2406e20014a29d1d</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5ac03ebd7c2b080014dd45d3</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5ac03f037c2b080014dd45d4</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5ac03f1a7c2b080014dd45d5</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d317a0bec720014479282</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d36670bec720014479288</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d384c0bec72001447928c</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts/5a5d39a20bec72001447928f</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=Fact</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.factstagram.com/posts?search=Myth</loc>
+  <lastmod>2018-05-06T01:41:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
