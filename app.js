@@ -90,6 +90,11 @@ app.get('/sitemap.xml', function(req, res, next){
                 changefreq: 'always',
                 priority: 0.8,
             },
+            '/register': {
+                lastmod: '2018-06-05',
+                changefreq: 'monthly',
+                priority: 0.6
+            },
             '/login': {
                 lastmod: '2018-06-05',
                 changefreq: 'monthly',
