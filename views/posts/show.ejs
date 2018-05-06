@@ -4,8 +4,10 @@
     <p class="lead">Information</p>
   </div>
   <div class="col-md-9">
-    <div class="thumbnail">
-      <img class="img-responsive" src="<%= post.image %>">
+    <div itemscope itemtype="http://schema.org/ItemPage" class="thumbnail">
+      <meta itemprop="url" content="<%=window.location.href%>"/>
+      <meta itemprop="disambiguatingDescription" content="<%=post.numFact%> people think that this is a Fact and <%=post.numMyth%> people think that this is a Myth"/>
+      <img itemprop="image" class="img-responsive" src="<%= post.image %>">
       <div class="caption-full">
         <h4 class="text-center">
         <% if (post.type != null){ %>
@@ -21,11 +23,11 @@
                      <% } }  %>
                         
         </h4>
-        <h4 class="text-center"><%= post.name %></h4>
-        <h5><%= post.description %></h5>
+        <h4 itemprop="name" class="text-center"><%= post.name %></h4>
+        <h5 itemprop="description"><%= post.description %></h5>
         <% if (post.source != ""){%><p style="text-align:right">Source:<a href="<%=post.source%>"><strong> <em><%=post.source %></em></strong></a></p><% } %>
         <p>
-          <em>Submitted by: <%= post.author.username %>, <%= moment(post.createdAt).fromNow() %></em>
+          <em itemprop="identifier">Submitted by: <%= post.author.username %>, <%= moment(post.createdAt).fromNow() %></em>
         </p>
           <% if(currentUser && post.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
         <a class="btn btn-warning" href="/posts/<%= post._id %>/edit">Edit</a>

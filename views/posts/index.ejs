@@ -1,4 +1,45 @@
 <% include ../partials/header %> 
+    <!-- Structure data for search engine -->
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "breadcrumb": {   
+              "@context": "http://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@id": "https://factstagram.com/posts",
+                  "name": "Home"
+                }
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@id": "https://factstagram.com/posts/newest",
+                  "name": "Newest"
+                }
+              },{
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@id": "https://factstagram.com/posts/votes",
+                  "name": "Most Voted"
+                }
+              },{
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@id": "https://factstagram.com/register",
+                  "name": "Register"
+                }
+              }]},
+        "name": "Factstagram",
+        "description": "Test your knowledge with mind blowing facts and myths."
+    }
+    </script>
 
      <header class="jumbotron">
          <div id="shitHole" class="container">
