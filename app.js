@@ -10,8 +10,8 @@ var express     = require("express"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     session = require("express-session"),
-    methodOverride = require("method-override");
-    
+    methodOverride = require("method-override"),
+    sitemap = require('express-sitemap')();
 // configure dotenv
 require('dotenv').load();
 
@@ -69,6 +69,11 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/posts", postRoutes);
 app.use("/posts/:id/comments", commentRoutes);
+//Site map auto-generator
+var xml = sitemap.generate4(app, ["/", "/posts", "/login", "/register"]);
+app.get('/sitemap.xml', function(req, res, next){
+    sitemap.XMLtoWeb(res);
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("The Server Has Started!");

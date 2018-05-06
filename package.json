@@ -20,6 +20,7 @@
     "ejs": "^2.5.8",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "express-sitemap": "^1.8.0",
     "method-override": "^2.3.10",
     "moment": "^2.20.1",
     "mongoose": "^4.13.9",
