@@ -11,7 +11,7 @@ var express     = require("express"),
     User        = require("./models/user"),
     session = require("express-session"),
     methodOverride = require("method-override"),
-    sitemap = require('express-sitemap')();
+    sitemap = require('express-sitemap');
 // configure dotenv
 require('dotenv').load();
 
@@ -69,10 +69,35 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/posts", postRoutes);
 app.use("/posts/:id/comments", commentRoutes);
-//Site map auto-generator
-var xml = sitemap.generate4(app, ["/", "/posts", "/login", "/register"]);
+
 app.get('/sitemap.xml', function(req, res, next){
-    sitemap.XMLtoWeb(res);
+    //Site map auto-generator
+    sitemap({
+        map: {
+            '/': ['get'],
+            '/posts': ['get','post'],
+            '/login': ['get'],
+            '/register': ['get'],
+        },
+        route: {
+            'http://factstagram.com': {
+                lastmod: '2018-06-05',
+                changefreq: 'monthly',
+                priority: 1.0,
+            },
+            '/post': {
+                lastmod: '2018-06-05',
+                changefreq: 'always',
+                priority: 0.8,
+            },
+            '/login': {
+                lastmod: '2018-06-05',
+                changefreq: 'monthly',
+                priority: 0.5
+            }
+        },
+        url: "http://www.factstagram.com"
+    }).XMLtoWeb(res);
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
