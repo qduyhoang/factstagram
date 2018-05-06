@@ -101,7 +101,7 @@ app.get('/sitemap.xml', function(req, res, next){
                 priority: 0.5
             }
         },
-        url: "http://www.factstagram.com"
+        url: "www.factstagram.com"
     }).XMLtoWeb(res);
 });
 
